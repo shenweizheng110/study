@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .item{
+            margin: 50px;
+        }
+        .triangle{
+            width: 0;
+            height: 0;
+            border-top: 50px solid red;
+            border-left: 50px solid black;
+            border-right: 50px solid yellow;
+            border-bottom: 50px solid blue;
+        }
+        .trapezoid{
+            /* 直角梯形 */
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid yellow;
+            border-bottom: 50px solid blue;
+            /* 普通梯形 */
+            width: 25px;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid blue;
+        }
+        .rhombus{
+            width: 0;
+            height: 0;
+            border-top: 50px solid red;
+            border-left: 50px solid black;
+            border-right: 50px solid yellow;
+            border-bottom: 50px solid blue;
+            transform: rotate(45deg);
+        }
+        .rhomboid{
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+        .rhomboid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background: blue;
+            transform: skew(45deg);
+        }
+        .love{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            transform: rotate(45deg);
+        }
+        .love::before{
+            content: '';
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: -50px;
+            border-radius: 50%;
+            background: red;
+        }
+        .love::after{
+            content: '';
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            border-radius: 50%;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 三角形 -->
+    <div class='item'>
+        <div class='triangle'></div>
+    </div>
+    <!-- 梯形 -->
+    <div class='item'>
+        <div class='trapezoid'></div>
+    </div>
+    <!-- 菱形 -->
+    <div class='item'>
+        <div class='rhombus'></div>
+    </div>
+    <!-- 平行四边形 -->
+    <div class='item'>
+        <div class='rhomboid'></div>
+    </div>
+    <!-- 爱心 -->
+    <div class='item'>
+        <div class='love'></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='root'></div>
+    <script>
+        let domTree = {
+            tagName: 'div',
+            children: [{
+                tagName: 'p',
+                children: [{
+                    tagName: 'h1',
+                    children: []
+                }]
+            },{
+                tagName: 'p',
+                children: []
+            }]
+        }
+
+        function combineDom(current){
+            let node = document.createElement(current.tagName);
+            for(let i = 0; i < current.children.length; i++){
+                node.appendChild(combineDom(current.children[i]));
+            }
+            return node;
+        }
+
+        let node = combineDom(domTree);
+        let root = document.getElementById('root');
+        root.appendChild(node);
+    </script>
+</body>
+</html>
